@@ -1,16 +1,16 @@
-//From bildr article: http://bildr.org/2012/08/rotary-encoder-arduino/
 
 //these pins can not be changed 2/3 are special pins
-int encoderPin1 = 2;
-int encoderPin2 = 3;
+int encoderPin1 = 4;
+int encoderPin2 = 5;
 
-volatile int lastEncoded = 0;
-volatile long encoderValue = 0;
+int lastEncoded = 0;
+long encoderValue = 0;
 
 long lastencoderValue = 0;
 
 int lastMSB = 0;
 int lastLSB = 0;
+long t;
 
 void setup() {
   Serial.begin (9600);
@@ -21,18 +21,16 @@ void setup() {
   digitalWrite(encoderPin1, HIGH); //turn pullup resistor on
   digitalWrite(encoderPin2, HIGH); //turn pullup resistor on
 
-  //call updateEncoder() when any high/low changed seen
-  //on interrupt 0 (pin 2), or interrupt 1 (pin 3) 
-  attachInterrupt(0, updateEncoder, CHANGE); 
-  attachInterrupt(1, updateEncoder, CHANGE);
-
+  
 }
 
 void loop(){ 
-  //Do stuff here
-  //int encoderValue = map(encoderValue, 0,1023,0,1);
-  Serial.write(encoderValue);
-  //delay(1000); //just here to slow down the output, and show it will work  even during a delay
+  t = micros();
+  updateEncoder();
+  t= micros()-t;
+  Serial.println(encoderValue);
+  //Serial.write(t);
+  delay(100);
 }
 
 
