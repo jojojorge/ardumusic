@@ -98,10 +98,10 @@ and which don't;
 #X text 354 308 then split list in pairs of four \, which are two bytes
 \, each split in two (first byte is actual value and second byte is
 the value's index);
-#X obj 995 81 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
--1 0;
-#X floatatom 991 210 5 0 0 0 - - -;
-#X obj 993 253 readsf~ 2;
+#X obj 1034 548 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X floatatom 1030 677 5 0 0 0 - - -;
+#X obj 1032 720 readsf~ 2;
 #X obj 1110 78 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
 #X floatatom 1170 232 5 0 0 0 - - -;
@@ -137,7 +137,7 @@ the value's index);
 #X connect 7 0 2 0;
 #X connect 7 0 3 0;
 #X connect 9 0 8 0;
-#X restore 1037 121 pd bajos;
+#X restore 1076 588 pd bajos;
 #N canvas 819 108 450 300 drums 0;
 #X obj 151 359 sel 1;
 #X obj 149 398 sel 2;
@@ -232,9 +232,9 @@ the value's index);
 #X connect 15 0 14 0;
 #X connect 16 0 14 0;
 #X restore 1254 125 pd guitar;
-#X obj 970 293 *~;
-#X obj 1016 290 *~;
-#N canvas 853 22 367 448 VolumenTotal 1;
+#X obj 1009 760 *~;
+#X obj 1055 757 *~;
+#N canvas 853 22 367 448 VolumenTotal 0;
 #X floatatom -360 58 5 0 0 0 - - -;
 #X obj -302 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -358,6 +358,9 @@ the value's index);
 #X floatatom 968 505 5 0 0 0 - - -;
 #X obj 838 476 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
+#X text 522 478 Este bucle controla si estamos con el primer inte-
+putor (rnum2) en 1 (activado).;
+#X text 796 417 Multiplicamos VolTotal*Vol1;
 #X connect 0 0 17 0;
 #X connect 1 0 0 0;
 #X connect 2 0 31 0;
@@ -478,4 +481,6 @@ the value's index);
 #X connect 112 0 111 1;
 #X connect 113 0 104 0;
 #X connect 114 0 115 0;
+#X connect 115 0 99 1;
+#X connect 115 0 98 1;
 #X connect 116 0 114 0;
