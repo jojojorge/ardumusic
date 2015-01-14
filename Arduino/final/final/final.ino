@@ -1,4 +1,4 @@
-#define DATA_SIZE 2 // as a test, define 10 as the maximum number of data
+#define DATA_SIZE 3 // as a test, define 10 as the maximum number of data
 #define NUM_OF_RANDOM 400 // small number to increase chance of number not changing
 #include <Encoder.h>
 Encoder knobLeft(2, 6);
@@ -11,8 +11,11 @@ const int total_size = (DATA_SIZE * 4) + 3;
 byte data_buffer[total_size]; // set a maximum size for the array
 byte stored_data[DATA_SIZE]; // array for value comparison
 byte val[DATA_SIZE];
+int pulsador1 = 10;
+
 void setup() {
   Serial.begin(9600);
+  pinMode(pulsador1, INPUT);
   // initialize values in array that stores data for comparison
   
 }
@@ -35,6 +38,7 @@ void loop() {
   {
       val[0] = map(newLeft,0,1023,0,255);
       val[1] = map(newRight,0,1023,0,255);
+      val[2] = digitalRead(pulsador1);
       
     for(int i = 0; i < DATA_SIZE; i++){
       if(val[i] != stored_data[i]){
