@@ -1,4 +1,4 @@
-#N canvas 70 23 1094 676 10;
+#N canvas 288 22 1094 676 10;
 #X obj 30 91 comport 6 9600;
 #X msg 30 57 close;
 #X obj 188 323 repack;
@@ -42,13 +42,13 @@
 #X obj 406 81 t f b;
 #X obj 433 102 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 456 121 5 0 0 0 - - -;
+#X floatatom 457 120 5 0 0 0 - - -;
 #X obj 456 81 t f b;
 #X obj 483 102 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X floatatom 506 121 5 0 0 0 - - -;
 #X obj 506 81 t f b;
-#X obj 533 102 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 533 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X floatatom 556 121 5 0 0 0 - - -;
 #X obj 556 81 t f b;
@@ -92,13 +92,13 @@ and which don't;
 #X msg 74 57 open \$1;
 #X text 74 262 first value (split in two) is number of data;
 #X floatatom 617 85 5 0 0 0 - - -;
-#X text 245 668 then split list in pairs of four \, which are two bytes
+#X text 268 349 then split list in pairs of four \, which are two bytes
 \, each split in two (first byte is actual value and second byte is
 the value's index);
-#X obj 679 176 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+#X obj 671 574 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
-#X floatatom 675 305 5 0 0 0 - - -;
-#X obj 677 348 readsf~ 2;
+#X floatatom 667 703 5 0 0 0 - - -;
+#X obj 669 746 readsf~ 2;
 #X obj 1120 88 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
 #X floatatom 1180 242 5 0 0 0 - - -;
@@ -134,7 +134,7 @@ the value's index);
 #X connect 7 0 2 0;
 #X connect 7 0 3 0;
 #X connect 9 0 8 0;
-#X restore 721 216 pd bajos;
+#X restore 713 614 pd bajos;
 #N canvas 819 108 450 300 drums 0;
 #X obj 151 359 sel 1;
 #X obj 149 398 sel 2;
@@ -229,8 +229,8 @@ the value's index);
 #X connect 15 0 14 0;
 #X connect 16 0 14 0;
 #X restore 1264 135 pd guitar;
-#X obj 654 388 *~;
-#X obj 700 385 *~;
+#X obj 646 786 *~;
+#X obj 692 783 *~;
 #N canvas 757 107 367 448 VolumenTotal 0;
 #X floatatom -288 119 5 0 0 0 - - -;
 #X obj -230 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -304,7 +304,7 @@ the value's index);
 #X connect 29 0 22 0;
 #X connect 30 0 25 0;
 #X restore 608 49 pd VolumenTotal;
-#X floatatom 498 307 5 0 0 0 - - -;
+#X floatatom 542 608 5 0 0 0 - - -;
 #N canvas 321 669 367 448 VolumenBucle1 1;
 #X floatatom -360 58 5 0 0 0 - - -;
 #X obj -302 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -381,18 +381,18 @@ putor (rnum2) en 1 (activado).;
 #X connect 29 0 28 1;
 #X connect 31 0 23 0;
 #X connect 32 0 29 0;
-#X restore 498 270 pd VolumenBucle1;
-#X obj 617 107 *;
-#X floatatom 662 128 5 0 0 0 - - -;
-#X obj 548 298 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X restore 542 571 pd VolumenBucle1;
+#X obj 572 643 *;
+#X floatatom 617 664 5 0 0 0 - - -;
+#X obj 592 599 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X floatatom 827 315 5 0 0 0 - - -;
 #X obj 825 339 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 550 528 5 0 0 0 - - -;
-#X obj 600 519 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X floatatom 530 868 5 0 0 0 - - -;
+#X obj 580 859 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 919 181 367 448 VolumenBucle2 1;
+#N canvas 919 181 367 448 VolumenBucle2 0;
 #X floatatom -360 58 5 0 0 0 - - -;
 #X obj -302 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -469,7 +469,7 @@ putor (rnum2) en 1 (activado).;
 #X connect 31 0 23 0;
 #X connect 32 0 29 0;
 #X restore 827 278 pd VolumenBucle2;
-#N canvas 906 22 367 448 VolumenBucle3 0;
+#N canvas 906 22 367 448 VolumenBucle3 1;
 #X floatatom -360 58 5 0 0 0 - - -;
 #X obj -302 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -545,13 +545,24 @@ putor (rnum2) en 1 (activado).;
 #X connect 29 0 28 1;
 #X connect 31 0 23 0;
 #X connect 32 0 29 0;
-#X restore 550 491 pd VolumenBucle3;
+#X restore 530 831 pd VolumenBucle3;
 #X obj 910 357 *;
 #X floatatom 922 390 5 0 0 0 - - -;
-#X obj 693 511 *;
-#X floatatom 692 543 5 0 0 0 - - -;
-#X obj 887 18 +;
-#X floatatom 708 13 5 0 0 0 - - -;
+#X obj 673 851 *;
+#X floatatom 672 883 5 0 0 0 - - -;
+#X floatatom 730 28 5 0 0 0 - - -;
+#X obj 36 462 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 32 503 t b b;
+#X msg 59 532 5;
+#X msg 23 531 3;
+#X obj 29 556 +;
+#X floatatom 30 597 5 0 0 0 - - -;
+#X obj 710 154 +;
+#X obj 694 113 t b f;
+#X obj 753 63 t b f;
+#X obj 751 109 +;
+#X floatatom 701 11 5 0 0 0 - - -;
 #X connect 0 0 17 0;
 #X connect 1 0 0 0;
 #X connect 2 0 31 0;
@@ -608,15 +619,15 @@ putor (rnum2) en 1 (activado).;
 #X connect 39 0 38 0;
 #X connect 39 1 40 0;
 #X connect 41 0 99 2;
-#X connect 41 0 113 0;
+#X connect 41 0 120 0;
 #X connect 42 0 41 0;
 #X connect 42 1 43 0;
 #X connect 44 0 107 2;
-#X connect 44 0 113 1;
+#X connect 44 0 121 0;
 #X connect 45 0 44 0;
 #X connect 45 1 46 0;
-#X connect 46 0 113 0;
 #X connect 47 0 108 2;
+#X connect 47 0 122 0;
 #X connect 48 0 47 0;
 #X connect 48 1 49 0;
 #X connect 51 0 50 0;
@@ -677,5 +688,17 @@ putor (rnum2) en 1 (activado).;
 #X connect 108 0 105 0;
 #X connect 109 0 110 0;
 #X connect 111 0 112 0;
-#X connect 113 0 114 0;
-#X connect 114 0 97 2;
+#X connect 113 0 123 0;
+#X connect 114 0 115 0;
+#X connect 115 0 117 0;
+#X connect 115 1 116 0;
+#X connect 116 0 118 1;
+#X connect 117 0 118 0;
+#X connect 118 0 119 0;
+#X connect 120 0 113 0;
+#X connect 121 0 120 0;
+#X connect 121 1 120 1;
+#X connect 122 0 123 0;
+#X connect 122 1 123 1;
+#X connect 123 0 124 0;
+#X connect 124 0 97 2;
