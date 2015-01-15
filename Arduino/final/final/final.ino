@@ -1,4 +1,4 @@
-#define DATA_SIZE 5 // as a test, define 10 as the maximum number of data
+#define DATA_SIZE 7 // as a test, define 10 as the maximum number of data
 #define NUM_OF_RANDOM 400 // small number to increase chance of number not changing
 #include <Encoder.h>
 Encoder knobLeft(2, 6);
@@ -14,12 +14,15 @@ byte val[DATA_SIZE];
 int pulsador1 = 10;
 int pulsador2 = 11;
 int pulsador3 = 12;
+int pulsador4 = 13;
+int Pot1 = A0;
 
 void setup() {
   Serial.begin(9600);
   pinMode(pulsador1, INPUT);
   pinMode(pulsador2, INPUT);
   pinMode(pulsador3, INPUT);
+  pinMode(pulsador4, INPUT);
   // initialize values in array that stores data for comparison
   
 }
@@ -38,6 +41,7 @@ void loop() {
   long newLeft, newRight;
   newLeft = knobLeft.read();
   newRight = knobRight.read();
+  int Potenc1 = analogRead(Pot1);
   if (newLeft != positionLeft || newRight != positionRight)
   {
       val[0] = map(newLeft,0,1023,0,255);
@@ -45,6 +49,9 @@ void loop() {
       val[2] = digitalRead(pulsador1);
       val[3] = digitalRead(pulsador2);
       val[4] = digitalRead(pulsador3);
+      val[5] = map(Potenc1,0,1023,0,255);
+      val[6] = digitalRead(pulsador4);
+      
       
     for(int i = 0; i < DATA_SIZE; i++){
       if(val[i] != stored_data[i]){
