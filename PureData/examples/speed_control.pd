@@ -1,6 +1,5 @@
-#N canvas 0 89 1366 655 10;
+#N canvas 1 89 1351 654 10;
 #X obj 108 73 soundfiler;
-#X msg 108 41 read -resize \$1 bajoL bajoR;
 #X floatatom 143 104 12 0 0 0 - - -;
 #X obj 143 130 s sampleSize;
 #X obj 108 153 expr 44100 / $f1;
@@ -17,16 +16,14 @@
 #X obj 345 396 r sampleSize;
 #X floatatom 258 447 5 0 0 0 - - -;
 #X obj 535 358 hsl 200 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 17328 1;
+-1 -1 10936 1;
 #X obj 89 342 tabread4~ bajoL;
 #X obj 127 373 tabread4~ bajoR;
 #X obj 93 451 *~;
 #X obj 155 457 *~;
-#X obj 283 187 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 12 1;
-#X floatatom 272 209 5 0 0 0 - - -;
-#X obj 471 417 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 4600 1;
+#X floatatom 281 213 5 0 0 0 - - -;
+#X obj 460 375 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 300 1;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array bajoL 352801 float 2;
 #X coords 0 1 352801 -1 200 140 1;
@@ -36,41 +33,58 @@
 #X coords 0 1 352801 -1 200 140 1;
 #X restore 533 209 graph;
 #X obj 105 539 dac~ 1 2;
-#X msg 109 -28 open /media/jorge/Datos1/DJSarumanSesion2014ClosToreau/Bajos/8seg/120/Dm/120BPM_Analog_Bass_02_Dmin.wav
-\, start;
 #X obj 448 48 openpanel;
 #X obj 448 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X msg 272 154 0.125;
 #X msg 404 273 0.15;
-#X connect 0 0 2 0;
-#X connect 0 0 4 0;
-#X connect 1 0 0 0;
-#X connect 2 0 3 0;
-#X connect 4 0 5 0;
-#X connect 4 0 6 0;
-#X connect 6 0 7 0;
-#X connect 7 0 17 0;
-#X connect 7 0 18 0;
-#X connect 7 0 11 0;
-#X connect 8 0 7 1;
+#X msg 108 41 read \$1 bajoL bajoR;
+#X obj 981 196 dac~ 1 2;
+#X obj 983 129 readsf~ \$1;
+#X msg 109 -28 open /media/jorge/Datos1/DJSarumanSesion2014ClosToreau/Bajos/8seg/120/Dm/120BPM_Analog_Bass_02_Dmin.wav
+\, start;
+#X msg 968 -19 open /media/jorge/Datos1/DJSarumanSesion2014ClosToreau/Bajos/8seg/120/Dm/120BPM_Analog_Bass_02_Dmin.wav
+\, start;
+#X obj 280 81 / 100;
+#X floatatom 282 117 12 0 0 0 - - -;
+#X obj 290 171 +;
+#X obj 366 141 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 33 0;
+#X connect 4 0 20 0;
+#X connect 5 0 6 0;
+#X connect 6 0 16 0;
+#X connect 6 0 17 0;
+#X connect 6 0 10 0;
+#X connect 7 0 6 1;
+#X connect 8 0 9 0;
 #X connect 9 0 10 0;
 #X connect 10 0 11 0;
 #X connect 11 0 12 0;
-#X connect 12 0 13 0;
-#X connect 13 0 15 0;
-#X connect 14 0 13 1;
-#X connect 15 0 16 0;
+#X connect 12 0 14 0;
+#X connect 13 0 12 1;
+#X connect 14 0 15 0;
+#X connect 16 0 18 0;
 #X connect 17 0 19 0;
-#X connect 18 0 20 0;
-#X connect 19 0 26 0;
-#X connect 20 0 26 1;
-#X connect 21 0 22 0;
-#X connect 22 0 6 0;
-#X connect 23 0 19 1;
-#X connect 23 0 20 1;
-#X connect 27 0 1 0;
-#X connect 28 0 1 0;
-#X connect 29 0 28 0;
-#X connect 30 0 21 0;
-#X connect 31 0 6 0;
+#X connect 18 0 24 0;
+#X connect 19 0 24 1;
+#X connect 20 0 5 0;
+#X connect 20 0 35 1;
+#X connect 21 0 18 1;
+#X connect 21 0 19 1;
+#X connect 25 0 28 0;
+#X connect 26 0 25 0;
+#X connect 27 0 5 0;
+#X connect 28 0 0 0;
+#X connect 30 0 29 0;
+#X connect 30 1 29 1;
+#X connect 31 0 28 0;
+#X connect 32 0 30 0;
+#X connect 33 0 34 0;
+#X connect 34 0 35 0;
+#X connect 35 0 20 0;
+#X connect 36 0 35 0;
