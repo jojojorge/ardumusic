@@ -1,4 +1,4 @@
-#N canvas 1 89 1351 654 10;
+#N canvas 0 89 1280 654 10;
 #X obj 30 91 comport 6 9600;
 #X msg 30 57 close;
 #X obj 188 323 repack;
@@ -96,7 +96,7 @@ and which don't;
 \, each split in two (first byte is actual value and second byte is
 the value's index);
 #X obj 1470 478 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
--1 -1 2;
+-1 -1 0;
 #X floatatom 1466 607 5 0 0 0 - - -;
 #X obj 1613 414 readsf~ 2;
 #N canvas 631 89 450 300 bajos 0;
