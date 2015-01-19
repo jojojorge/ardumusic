@@ -1,3 +1,6 @@
+//Quedan definidos los puertos 6 9 10 y 11 para el PWM de los leds
+
+
 #define DATA_SIZE 7 // as a test, define 10 as the maximum number of data
 #define NUM_OF_RANDOM 400 // small number to increase chance of number not changing
 #define BAUDIOS 9600
@@ -44,7 +47,19 @@ static void parse_input_message(int argc, char *argv[])
     int value = atoi(argv[1] );
     
     if ( string_equal( command, "le1" )) {
-      analogWrite( 3, value );
+      analogWrite( 6, value );
+      return;
+    }
+    else if ( string_equal( command, "le2" )) {
+      analogWrite( 9, value );
+      return;
+    }
+    else if ( string_equal( command, "le3" )) {
+      analogWrite( 10, value );
+      return;
+    }
+    else if ( string_equal( command, "le4" )) {
+      analogWrite( 11, value );
       return;
     }
    }
