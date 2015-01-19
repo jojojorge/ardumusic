@@ -1,4 +1,4 @@
-//Quedan definidos los puertos 6 9 10 y 11 para el PWM de los leds
+//Quedan definidos los puertos 5 9 10 y 11 para el PWM de los leds
 
 
 #define DATA_SIZE 7 // as a test, define 10 as the maximum number of data
@@ -47,7 +47,7 @@ static void parse_input_message(int argc, char *argv[])
     int value = atoi(argv[1] );
     
     if ( string_equal( command, "le1" )) {
-      analogWrite( 6, value );
+      analogWrite( 5, value );
       return;
     }
     else if ( string_equal( command, "le2" )) {
@@ -189,4 +189,5 @@ void loop() {
     // wait for a second
     //delay(1000);
   }
+  serial_input_poll();
 }
