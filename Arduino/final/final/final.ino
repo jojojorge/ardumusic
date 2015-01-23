@@ -1,7 +1,7 @@
 //Quedan definidos los puertos 5 9 10 y 11 para el PWM de los leds
 
 
-#define DATA_SIZE 7 // as a test, define 10 as the maximum number of data
+#define DATA_SIZE 9 // as a test, define 10 as the maximum number of data
 #define NUM_OF_RANDOM 400 // small number to increase chance of number not changing
 #define BAUDIOS 9600
 // The maximum message line length.
@@ -20,11 +20,13 @@ const int total_size = (DATA_SIZE * 4) + 3;
 byte data_buffer[total_size]; // set a maximum size for the array
 byte stored_data[DATA_SIZE]; // array for value comparison
 byte val[DATA_SIZE];
-int pulsador1 = 10;
-int pulsador2 = 11;
+int pulsador1 = 4;
+int pulsador2 = 8;
 int pulsador3 = 12;
 int pulsador4 = 13;
 int Pot1 = A0;
+int Pot2 = A1;
+int Pot3 = A2;
 
 
 /****************************************************************/
@@ -152,6 +154,8 @@ void loop() {
   newLeft = knobLeft.read();
   newRight = knobRight.read();
   int Potenc1 = analogRead(Pot1);
+  int Potenc2 = analogRead(Pot2);
+  int Potenc3 = analogRead(Pot3);
   if (newLeft != positionLeft || newRight != positionRight)
   {
       val[0] = map(newLeft,0,1023,0,255);
@@ -161,6 +165,8 @@ void loop() {
       val[4] = digitalRead(pulsador3);
       val[5] = map(Potenc1,0,1023,0,255);
       val[6] = digitalRead(pulsador4);
+      val[7] = map(Potenc2,0,1023,0,255);
+      val[8] = map(Potenc3,0,1023,0,255);
       
       
     for(int i = 0; i < DATA_SIZE; i++){
